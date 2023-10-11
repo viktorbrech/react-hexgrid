@@ -5,6 +5,7 @@ import './App.css';
 class App extends Component {
   render() {
     const hexagons = GridGenerator.parallelogram(-2, 3, -2, 1);
+    console.log(hexagons)
 
     return (
       <div className="App">

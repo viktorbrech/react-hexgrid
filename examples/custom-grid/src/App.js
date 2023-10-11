@@ -2,47 +2,305 @@ import React, { Component } from 'react';
 import { GridGenerator, HexGrid, Layout, Path, Hexagon, Text, Pattern, Hex } from 'react-hexgrid';
 import './App.css';
 
+var dw_grid = [
+  [1,0,-1],
+  [2,0,-2],
+  [3,0,-3],
+  [4,0,-4],
+  [5,0,-5],
+  [6,0,-6],
+  [7,0,-7],
+  [8,0,-8],
+  [9,0,-9],
+  [10,0,-10],
+  [11,0,-11],
+  [12,0,-12],
+  [13,0,-13],
+  [14,0,-14],
+  [15,0,-15],
+  [16,0,-16],
+  [17,0,-17],
+  [0,1,-1],
+  [1,1,-2],
+  [2,1,-3],
+  [3,1,-4],
+  [4,1,-5],
+  [5,1,-6],
+  [6,1,-7],
+  [7,1,-8],
+  [8,1,-9],
+  [9,1,-10],
+  [10,1,-11],
+  [11,1,-12],
+  [12,1,-13],
+  [13,1,-14],
+  [14,1,-15],
+  [15,1,-16],
+  [16,1,-17],
+  [17,1,-18],
+  [0,2,-2],
+  [1,2,-3],
+  [2,2,-4],
+  [3,2,-5],
+  [4,2,-6],
+  [5,2,-7],
+  [6,2,-8],
+  [7,2,-9],
+  [8,2,-10],
+  [9,2,-11],
+  [10,2,-12],
+  [11,2,-13],
+  [12,2,-14],
+  [13,2,-15],
+  [14,2,-16],
+  [15,2,-17],
+  [16,2,-18],
+  [-1,3,-2],
+  [0,3,-3],
+  [1,3,-4],
+  [2,3,-5],
+  [3,3,-6],
+  [4,3,-7],
+  [5,3,-8],
+  [6,3,-9],
+  [7,3,-10],
+  [8,3,-11],
+  [9,3,-12],
+  [10,3,-13],
+  [11,3,-14],
+  [12,3,-15],
+  [13,3,-16],
+  [14,3,-17],
+  [15,3,-18],
+  [16,3,-19],
+  [-1,4,-3],
+  [0,4,-4],
+  [1,4,-5],
+  [2,4,-6],
+  [3,4,-7],
+  [4,4,-8],
+  [5,4,-9],
+  [6,4,-10],
+  [7,4,-11],
+  [8,4,-12],
+  [9,4,-13],
+  [10,4,-14],
+  [11,4,-15],
+  [12,4,-16],
+  [13,4,-17],
+  [14,4,-18],
+  [15,4,-19],
+  [-2,5,-3],
+  [-1,5,-4],
+  [0,5,-5],
+  [1,5,-6],
+  [2,5,-7],
+  [3,5,-8],
+  [4,5,-9],
+  [5,5,-10],
+  [6,5,-11],
+  [7,5,-12],
+  [8,5,-13],
+  [9,5,-14],
+  [10,5,-15],
+  [11,5,-16],
+  [12,5,-17],
+  [13,5,-18],
+  [14,5,-19],
+  [15,5,-20],
+  [-2,6,-4],
+  [-1,6,-5],
+  [0,6,-6],
+  [1,6,-7],
+  [2,6,-8],
+  [3,6,-9],
+  [4,6,-10],
+  [5,6,-11],
+  [6,6,-12],
+  [7,6,-13],
+  [8,6,-14],
+  [9,6,-15],
+  [10,6,-16],
+  [11,6,-17],
+  [12,6,-18],
+  [13,6,-19],
+  [14,6,-20],
+  [-3,7,-4],
+  [-2,7,-5],
+  [-1,7,-6],
+  [0,7,-7],
+  [1,7,-8],
+  [2,7,-9],
+  [3,7,-10],
+  [4,7,-11],
+  [5,7,-12],
+  [6,7,-13],
+  [7,7,-14],
+  [8,7,-15],
+  [9,7,-16],
+  [10,7,-17],
+  [11,7,-18],
+  [12,7,-19],
+  [13,7,-20],
+  [14,7,-21],
+  [-3,8,-5],
+  [-2,8,-6],
+  [-1,8,-7],
+  [0,8,-8],
+  [1,8,-9],
+  [2,8,-10],
+  [3,8,-11],
+  [4,8,-12],
+  [5,8,-13],
+  [6,8,-14],
+  [7,8,-15],
+  [8,8,-16],
+  [9,8,-17],
+  [10,8,-18],
+  [11,8,-19],
+  [12,8,-20],
+  [13,8,-21],
+  [-4,9,-5],
+  [-3,9,-6],
+  [-2,9,-7],
+  [-1,9,-8],
+  [0,9,-9],
+  [1,9,-10],
+  [2,9,-11],
+  [3,9,-12],
+  [4,9,-13],
+  [5,9,-14],
+  [6,9,-15],
+  [7,9,-16],
+  [8,9,-17],
+  [9,9,-18],
+  [10,9,-19],
+  [11,9,-20],
+  [12,9,-21],
+  [13,9,-22],
+  [-4,10,-6],
+  [-3,10,-7],
+  [-2,10,-8],
+  [-1,10,-9],
+  [0,10,-10],
+  [1,10,-11],
+  [2,10,-12],
+  [3,10,-13],
+  [4,10,-14],
+  [5,10,-15],
+  [6,10,-16],
+  [7,10,-17],
+  [8,10,-18],
+  [9,10,-19],
+  [10,10,-20],
+  [11,10,-21],
+  [12,10,-22],
+  [-5,11,-6],
+  [-4,11,-7],
+  [-3,11,-8],
+  [-2,11,-9],
+  [-1,11,-10],
+  [0,11,-11],
+  [1,11,-12],
+  [2,11,-13],
+  [3,11,-14],
+  [4,11,-15],
+  [5,11,-16],
+  [6,11,-17],
+  [7,11,-18],
+  [8,11,-19],
+  [9,11,-20],
+  [10,11,-21],
+  [11,11,-22],
+  [12,11,-23],
+  [-5,12,-7],
+  [-4,12,-8],
+  [-3,12,-9],
+  [-2,12,-10],
+  [-1,12,-11],
+  [0,12,-12],
+  [1,12,-13],
+  [2,12,-14],
+  [3,12,-15],
+  [4,12,-16],
+  [5,12,-17],
+  [6,12,-18],
+  [7,12,-19],
+  [8,12,-20],
+  [9,12,-21],
+  [10,12,-22],
+  [11,12,-23],
+  [-6,13,-7],
+  [-5,13,-8],
+  [-4,13,-9],
+  [-3,13,-10],
+  [-2,13,-11],
+  [-1,13,-12],
+  [0,13,-13],
+  [1,13,-14],
+  [2,13,-15],
+  [3,13,-16],
+  [4,13,-17],
+  [5,13,-18],
+  [6,13,-19],
+  [7,13,-20],
+  [8,13,-21],
+  [9,13,-22],
+  [10,13,-23],
+  [11,13,-24],
+  [-6,14,-8],
+  [-5,14,-9],
+  [-4,14,-10],
+  [-3,14,-11],
+  [-2,14,-12],
+  [-1,14,-13],
+  [0,14,-14],
+  [1,14,-15],
+  [2,14,-16],
+  [3,14,-17],
+  [4,14,-18],
+  [5,14,-19],
+  [6,14,-20],
+  [7,14,-21],
+  [8,14,-22],
+  [9,14,-23],
+  [10,14,-24]
+]
+
+const all_hex = dw_grid.map(qrs => new Hex(qrs[0], qrs[1], qrs[2]))
+
+/*
+https://3967897.fs1.hubspotusercontent-na1.net/hubfs/3967897/dw_tiles_offset/all_green.png
+https://3967897.fs1.hubspotusercontent-na1.net/hubfs/3967897/dw_tiles_offset/right_green.png
+https://3967897.fs1.hubspotusercontent-na1.net/hubfs/3967897/dw_tiles_offset/left_green.png
+https://3967897.fs1.hubspotusercontent-na1.net/hubfs/3967897/dw_tiles_offset/top_green.png
+https://3967897.fs1.hubspotusercontent-na1.net/hubfs/3967897/dw_tiles_offset/bottom_green.png
+*/
+
+
 class App extends Component {
   render() {
-    const hexagonSize = { x: 10, y: 10 };
-    const moreHexas = GridGenerator.parallelogram(-2, 2, -2, 2);
+    const hexagonSize = { x: 9.8, y: 9.8 };
+    //const moreHexas = GridGenerator.rectangle(18, 15)
+    //const hex_coordinates = moreHexas.map(hex => [hex.q, hex.r, hex.s] )
+    //console.log(hex_coordinates)
     return (
       <div className="App">
         <h2>React Hexgrid v1</h2>
         <p>Constructing Hexgrid with component-based approach with custom SVG elements.</p>
-        <HexGrid width={1200} height={800} viewBox="-50 -50 100 100">
+        <HexGrid width={1000} height={693} viewBox="102.7 10 100 200">
           {/* Main grid with bit hexagons, all manual */}
-          <Layout size={hexagonSize} flat={true} spacing={1.1} origin={{ x: 0, y: 0 }}>
-            <Hexagon q={0} r={0} s={0} />
-            {/* Using pattern (defined below) to fill the hexagon */}
-            <Hexagon q={0} r={-1} s={1} fill="pat-1" />
-            <Hexagon q={0} r={1} s={-1} />
-            <Hexagon q={1} r={-1} s={0}>
-              <Text>1, -1, 0</Text>
-            </Hexagon>
-            <Hexagon q={1} r={0} s={-1}>
-              <Text>1, 0, -1</Text>
-            </Hexagon>
-            {/* Pattern and text */}
-            <Hexagon q={-1} r={1} s={0} fill="pat-2">
-              <Text>-1, 1, 0</Text>
-            </Hexagon>
-            <Hexagon q={-1} r={0} s={1} />
-            <Hexagon q={-2} r={0} s={1} />
-            <Path start={new Hex(0, 0, 0)} end={new Hex(-2, 0, 1)} />
-          </Layout>
-          {/* Additional small grid, hexagons generated with generator */}
-          <Layout size={{ x: 2, y: 2 }} origin={{ x: 50, y: -30 }}>
-            { moreHexas.map((hex, i) => <Hexagon key={i} q={hex.q} r={hex.r} s={hex.s} />) }
+          <Layout size={hexagonSize} flat={false} spacing={1} origin={{ x: 0, y: 0 }}>
+            { all_hex.map((hex, i) => <Hexagon key={i} q={hex.q} r={hex.r} s={hex.s} fill="inner">
+              <Text>{hex.q}, {hex.r}, {hex.s}</Text>
+            </Hexagon>) }
           </Layout>
           {/* You can define multiple patterns and switch between them with "fill" prop on Hexagon */}
-          <Pattern id="pat-1" link="http://lorempixel.com/400/400/cats/1/" size={hexagonSize} />
-          <Pattern id="pat-2" link="http://lorempixel.com/400/400/cats/2/" size={hexagonSize} />
-          <g>
-            <circle cx="50" cy="0" r="10" />
-            <circle cx="50" cy="10" r="8" />
-            <circle cx="45" cy="20" r="6" />
-          </g>
+          <Pattern id="top-edge" link="https://3967897.fs1.hubspotusercontent-na1.net/hubfs/3967897/dw_tiles_offset/bottom_green.png" size={hexagonSize} />
+          <Pattern id="bottom-edge" link="https://3967897.fs1.hubspotusercontent-na1.net/hubfs/3967897/dw_tiles_offset/top_green.png" size={hexagonSize} />
+          <Pattern id="right-edge" link="https://3967897.fs1.hubspotusercontent-na1.net/hubfs/3967897/dw_tiles_offset/left_green.png" size={hexagonSize} />
+          <Pattern id="left-edge" link="https://3967897.fs1.hubspotusercontent-na1.net/hubfs/3967897/dw_tiles_offset/right_green.png" size={hexagonSize} />
+          <Pattern id="inner" link="https://3967897.fs1.hubspotusercontent-na1.net/hubfs/3967897/dw_tiles_offset/all_green.png" size={hexagonSize} />
         </HexGrid>
       </div>
     );

@@ -22,12 +22,12 @@ svg g:hover text {
 }
 
 svg g polygon {
-  stroke: #7be3f6;
+  stroke: #272727;
   stroke-width: 0.2;
   transition: fill-opacity .5s;
 }
 svg g text {
-  font-size: 0.22em;
+  font-size: 0.15em;
   fill: white;
   fill-opacity: 0.7;
   transition: fill-opacity .5s;
